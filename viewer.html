@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Batjes Zedelgem Photobooth Viewer</title>
+
+    <link rel="stylesheet" type="text/css" href="app.css">
+  </head>
+  <body>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      var socket = io();
+
+      function snap() {
+        alert("snap!");
+      }
+
+      function redo() {
+        alert("redo!");
+      }
+
+      function done() {
+        alert("done!");
+      }
+      
+      socket.on('snap', function() {
+        snap();
+      });
+      
+      socket.on('redo', function() {
+        redo();
+      });
+      
+      socket.on('done', function() {
+        done();
+      });
+    </script>
+  </body>
+</html>

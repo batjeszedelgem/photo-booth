@@ -1,0 +1,9 @@
+{
+    "name": "batjeszedelgem-photobooth",
+    "version": "0.1",
+    "description": "Batjes Zedelgem Photobooth",
+    "dependencies": {
+        "express": "4.10.2",
+        "socket.io": "1.2.0"
+    }
+}

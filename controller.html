@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Batjes Zedelgem Photobooth Controller</title>
+
+    <link rel="stylesheet" type="text/css" href="app.css">
+  </head>
+  <body>
+    <a onclick="snap();" class="button">Foto nemen</a>
+    <a onclick="redo();" class="button">Herproberen</a>
+    <a onclick="done();" class="button">Klaar!</a>
+
+    <script src="/socket.io/socket.io.js"></script>
+
+    <script>
+      var socket = io();
+
+      function snap() {
+        socket.emit('snap');
+      }
+
+      function redo() {
+        socket.emit('redo');
+      }
+
+      function done() {
+        socket.emit('done');
+      }
+    </script>
+  </body>
+</html>
