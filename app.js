@@ -1,6 +1,7 @@
 var express = require('express');
 var app = express();
 var http = require('http').Server(app);
+var uuid = require('node-uuid');
 var io = require('socket.io')(http);
 var fs = require('fs');
 
@@ -20,15 +21,25 @@ app.get('/controller', function(req, res){
 });
 
 app.post('/snap', function(req, res){
-  console.log('snap received ...');
+  var snapFileName = uuid.v1() + '.png';
 
-  var writeStream = fs.createWriteStream('snap.png');
+  var writeStream = fs.createWriteStream('snaps/' + snapFileName);
+
+  req.on('data', function(chunk) {
+    var successfulWrite = writeStream.write(chunk);
+  });
+
+  req.on('finish', function() {
+    writeStream.end();
+  });
+  
+  req.on('error', function(e) {
+    res.sendStatus(500);
+  });
+
   writeStream.on('finish', function() {
     console.log('snap written to disk');
-    res.sendStatus(200)
   });
-  writeStream.write(req);
-  writeStream.end();
 });
 
 
@@ -40,15 +51,21 @@ io.on('connection', function(socket){
 });
 
 io.on('connection', function(socket){
-  socket.on('snap', function(){
+  socket.on('snap', function() {
+    console.log('emitting snap ...');
+    
     io.emit('snap');
   });
 
-  socket.on('redo', function(){
+  socket.on('redo', function() {
+    console.log('emitting redo ...');
+
     io.emit('redo');
   });
 
-  socket.on('done', function(){
+  socket.on('done', function() {
+    console.log('emitting done ...');
+
     io.emit('done');
   });
 });
