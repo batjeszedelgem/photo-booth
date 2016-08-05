@@ -1,6 +1,38 @@
 body {
     background: url("bg.png") repeat;
     font-family: Tahoma;
+    margin: 0;
+    padding: 0;
+}
+
+div#container {
+    display: block;
+    position: fixed;
+    top: 70px;
+    left: 50%;
+}
+
+div#screen video, div#screen canvas {
+    position: absolute;
+    display: block;
+    left: 50%;
+    margin-left: -320px;
+    top: 50px;
+}
+
+div#screen canvas {
+    display: none;
+}
+
+div#bar {
+    clear: both;
+    display: block;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    text-align: center;
 }
 
 a.button, button {

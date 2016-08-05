@@ -4,6 +4,7 @@
   "description": "Batjes Zedelgem Photobooth",
   "dependencies": {
     "express": "^4.14.0",
-    "socket.io": "1.2.0"
+    "socket.io": "1.2.0",
+    "jquery": "^3.1.0"
   }
 }

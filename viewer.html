@@ -6,22 +6,25 @@
     <link rel="stylesheet" type="text/css" href="app.css">
   </head>
   <body>
+    <div id="container">
+      <div id="screen">
+        <video id="live" autoplay></video>
+        <canvas id="snapshot"></canvas>
+      </div>
+      <div id="bar"></div>
+    </div>
+
+    <script src="photobooth.js"></script>
     <script src="/socket.io/socket.io.js"></script>
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script>
+      window.addEventListener("DOMContentLoaded", function() {
+        setupUserMedia();
+      }, false);
+
+
       var socket = io();
 
-      function snap() {
-        alert("snap!");
-      }
-
-      function redo() {
-        alert("redo!");
-      }
-
-      function done() {
-        alert("done!");
-      }
-      
       socket.on('snap', function() {
         snap();
       });
