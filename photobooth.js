@@ -51,4 +51,39 @@ function redo() {
 function done() {
     $('#snapshot').hide();
     $('#live').show();
+
+    upload();
+}
+
+function upload() {
+    var image = document.getElementById("snapshot").toDataURL("image/png");
+    var imageBlob = createBlob(image);
+
+    $.ajax({
+        url: '/snap',
+        data: imageBlob,
+        cache: false,
+        contentType: false,
+        processData: false,
+        type: 'POST',
+        success: function (response) {},
+        error: function (response) {}
+    });
+}
+
+function createBlob(data) {
+    var blob;
+    try {
+        var byteString = atob(data.split(',')[1]);
+        var ab = new ArrayBuffer(byteString.length);
+        var ia = new Uint8Array(ab);
+        for (var i = 0; i < byteString.length; i++) {
+            ia[i] = byteString.charCodeAt(i);
+        }
+        blob = new Blob([ab], {type: 'image/png'});
+    } catch (e) {
+        console.log(e);
+    }
+
+    return blob;
 }
