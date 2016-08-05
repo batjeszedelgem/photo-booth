@@ -1,6 +1,6 @@
 body {
     background: url("bg.png") repeat;
-    font-family: Tahoma;
+    font-family: Arial;
 }
 
 div#container {
@@ -33,22 +33,27 @@ div#bar {
     text-align: center;
 }
 
-a.button, button {
-    -webkit-appearance: button;
-    -moz-appearance: button;
-    appearance: button;
+a {
+  -webkit-border-radius: 20;
+  -moz-border-radius: 20;
+  border-radius: 20px;
+  -webkit-box-shadow: 2px 2px 4px #666666;
+  -moz-box-shadow: 2px 2px 4px #666666;
+  box-shadow: 2px 2px 4px #666666;
+  color: #ffffff;
+  font-size: 46px;
+  background: #E5007C;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  
+  text-align: center;
+  margin: 10px 20px;
+  min-width: 600px;
+}
 
-    text-decoration: none;
-    color: initial;
-    background-color: #E5007C;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    margin: 5px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 24px;
-    border-radius: 4px;
-    min-width: 200px;
+a:hover {
+  background: #3cb0fd;
+  text-decoration: none;
+
+  cursor: pointer;
 }
