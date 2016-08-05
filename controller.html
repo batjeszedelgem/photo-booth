@@ -4,12 +4,25 @@
     <title>Batjes Zedelgem Photobooth Controller</title>
 
     <link rel="stylesheet" type="text/css" href="app.css">
+
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      a {
+        max-width: 600px;
+      }
+    </style>
   </head>
   <body>
     <a onclick="snap();" class="button">Foto nemen</a>
     <a onclick="redo();" class="button">Herproberen</a>
     <a onclick="done();" class="button">Klaar!</a>
 
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script src="/socket.io/socket.io.js"></script>
 
     <script>

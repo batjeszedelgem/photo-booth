@@ -1,8 +1,6 @@
 body {
     background: url("bg.png") repeat;
     font-family: Tahoma;
-    margin: 0;
-    padding: 0;
 }
 
 div#container {
