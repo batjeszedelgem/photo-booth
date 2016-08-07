@@ -5,6 +5,19 @@
 
     <link rel="stylesheet" type="text/css" href="app.css">
     <link rel="stylesheet" href="node_modules/animate.css/animate.min.css">
+
+    <style>
+      div#bar {
+          width: 100%;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+      }
+
+      a {
+        min-width: 250px;
+      }
+    </style>
   </head>
   <body>
     <div id="container">
@@ -13,7 +26,13 @@
         <canvas id="snapshot"></canvas>
         <div id="countdown"></div>
       </div>
-      <div id="bar"></div>
+      <div id="bar">
+        <div id="controller">
+              <a onclick="emitSnap();" class="button">Lachen!</a>
+              <a onclick="emitRedo();" class="button">Opnieuw!</a>
+              <a onclick="emitDone();" class="button">Klaar!</a>
+        </div>
+      </div>
     </div>
 
     <script src="photobooth.js"></script>
@@ -27,6 +46,18 @@
 
 
       var socket = io();
+
+      function emitSnap() {
+        socket.emit('snap');
+      }
+
+      function emitRedo() {
+        socket.emit('redo');
+      }
+
+      function emitDone() {
+        socket.emit('done');
+      }
 
       socket.on('snap', function() {
         countdown(function() {

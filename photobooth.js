@@ -27,6 +27,23 @@ function setupUserMedia() {
     }
 }
 
+
+function countdown(cb) {
+    var counter = 3;
+
+    var timer = setInterval(function() {
+      if (counter > 0) {
+        $("#countdown").show();
+        $("#countdown").text(counter--);
+      } else {
+        $("#countdown").hide();
+        clearInterval(timer);
+        
+        cb();
+      }
+    }, 1000);
+}
+
 function snap() {
     live = document.getElementById("live");
     snapshot = document.getElementById("snapshot");

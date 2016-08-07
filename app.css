@@ -10,7 +10,7 @@ div#container {
     left: 50%;
 }
 
-div#screen video, div#screen canvas {
+div#screen video, div#screen canvas, div#countdown {
     position: absolute;
     display: block;
     left: 50%;
@@ -20,6 +20,16 @@ div#screen video, div#screen canvas {
 
 div#screen canvas {
     display: none;
+}
+
+div#countdown {
+  z-index: 100;
+  font-size: 400px;
+  color: white;
+  text-align: center;
+  vertical-align: middle;
+  display: table-cell;
+  width: 640px;
 }
 
 div#bar {
@@ -48,7 +58,6 @@ a {
   
   text-align: center;
   margin: 10px 20px;
-  min-width: 600px;
 }
 
 a:hover {

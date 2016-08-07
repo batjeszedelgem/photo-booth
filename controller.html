@@ -13,14 +13,14 @@
       }
 
       a {
-        max-width: 600px;
+        min-width: 600px;
       }
     </style>
   </head>
   <body>
-    <a onclick="snap();" class="button">Lachen!</a>
-    <a onclick="redo();" class="button">Opnieuw!</a>
-    <a onclick="done();" class="button">Klaar!</a>
+    <a onclick="emitSnap();" class="button">Lachen!</a>
+    <a onclick="emitRedo();" class="button">Opnieuw!</a>
+    <a onclick="emitDone();" class="button">Klaar!</a>
 
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script src="/socket.io/socket.io.js"></script>
@@ -28,15 +28,15 @@
     <script>
       var socket = io();
 
-      function snap() {
+      function emitSnap() {
         socket.emit('snap');
       }
 
-      function redo() {
+      function emitRedo() {
         socket.emit('redo');
       }
 
-      function done() {
+      function emitDone() {
         socket.emit('done');
       }
     </script>

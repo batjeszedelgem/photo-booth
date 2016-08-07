@@ -20,6 +20,10 @@ app.get('/controller', function(req, res){
   res.sendFile(__dirname + '/controller.html');
 });
 
+app.get('/full', function(req, res){
+  res.sendFile(__dirname + '/full.html');
+});
+
 app.post('/snap', function(req, res){
   var snapFileName = uuid.v1() + '.png';
 
